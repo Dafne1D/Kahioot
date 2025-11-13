@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\dafne\\OneDrive\\Escritorio\\Programaci\u00F3\\Sockets\\Kahioot\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0BF31FD5-BAC5-4A22-903A-FC26CA0B904A}|Kahioot\\Kahioot.csproj|c:\\users\\dafne\\onedrive\\escritorio\\programaci\u00F3\\sockets\\kahioot\\kahioot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BF31FD5-BAC5-4A22-903A-FC26CA0B904A}|Kahioot\\Kahioot.csproj|solutionrelative:kahioot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\dafne\\OneDrive\\Escritorio\\Programaci\u00F3\\Sockets\\Kahioot\\Kahioot\\Program.cs",
+              "RelativeDocumentMoniker": "Kahioot\\Program.cs",
+              "ToolTip": "C:\\Users\\dafne\\OneDrive\\Escritorio\\Programaci\u00F3\\Sockets\\Kahioot\\Kahioot\\Program.cs",
+              "RelativeToolTip": "Kahioot\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T15:22:35.766Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

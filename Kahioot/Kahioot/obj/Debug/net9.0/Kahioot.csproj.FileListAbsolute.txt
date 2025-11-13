@@ -1,0 +1,15 @@
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\bin\Debug\net9.0\Kahioot.exe
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\bin\Debug\net9.0\Kahioot.deps.json
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\bin\Debug\net9.0\Kahioot.runtimeconfig.json
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\bin\Debug\net9.0\Kahioot.dll
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\bin\Debug\net9.0\Kahioot.pdb
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\obj\Debug\net9.0\Kahioot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\obj\Debug\net9.0\Kahioot.AssemblyInfoInputs.cache
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\obj\Debug\net9.0\Kahioot.AssemblyInfo.cs
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\obj\Debug\net9.0\Kahioot.csproj.CoreCompileInputs.cache
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\obj\Debug\net9.0\Kahioot.sourcelink.json
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\obj\Debug\net9.0\Kahioot.dll
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\obj\Debug\net9.0\refint\Kahioot.dll
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\obj\Debug\net9.0\Kahioot.pdb
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\obj\Debug\net9.0\Kahioot.genruntimeconfig.cache
+C:\Users\dafne\OneDrive\Escritorio\Programació\Sockets\Kahioot\Kahioot\obj\Debug\net9.0\ref\Kahioot.dll
