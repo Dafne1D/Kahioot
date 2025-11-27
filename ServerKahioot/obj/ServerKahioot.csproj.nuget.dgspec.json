@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dafne\\OneDrive\\Escritorio\\Programació\\Sockets\\Kahioot\\ServerKahioot\\ServerKahioot.csproj": {}
+    "C:\\Users\\dafne\\Desktop\\Kahioot\\ServerKahioot\\ServerKahioot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dafne\\OneDrive\\Escritorio\\Programació\\Sockets\\Kahioot\\ServerKahioot\\ServerKahioot.csproj": {
+    "C:\\Users\\dafne\\Desktop\\Kahioot\\ServerKahioot\\ServerKahioot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dafne\\OneDrive\\Escritorio\\Programació\\Sockets\\Kahioot\\ServerKahioot\\ServerKahioot.csproj",
+        "projectUniqueName": "C:\\Users\\dafne\\Desktop\\Kahioot\\ServerKahioot\\ServerKahioot.csproj",
         "projectName": "ServerKahioot",
-        "projectPath": "C:\\Users\\dafne\\OneDrive\\Escritorio\\Programació\\Sockets\\Kahioot\\ServerKahioot\\ServerKahioot.csproj",
+        "projectPath": "C:\\Users\\dafne\\Desktop\\Kahioot\\ServerKahioot\\ServerKahioot.csproj",
         "packagesPath": "C:\\Users\\dafne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dafne\\OneDrive\\Escritorio\\Programació\\Sockets\\Kahioot\\ServerKahioot\\obj\\",
+        "outputPath": "C:\\Users\\dafne\\Desktop\\Kahioot\\ServerKahioot\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

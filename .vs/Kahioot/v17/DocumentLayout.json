@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\dafne\\OneDrive\\Escritorio\\Programaci\u00F3\\Sockets\\Kahioot\\",
+  "WorkspaceRootPath": "C:\\Users\\dafne\\Desktop\\Kahioot\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6ED8F79E-1576-4967-9AA9-058624009E4E}|ServerKahioot\\ServerKahioot.csproj|c:\\users\\dafne\\onedrive\\escritorio\\programaci\u00F3\\sockets\\kahioot\\serverkahioot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6ED8F79E-1576-4967-9AA9-058624009E4E}|ServerKahioot\\ServerKahioot.csproj|c:\\users\\dafne\\desktop\\kahioot\\serverkahioot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6ED8F79E-1576-4967-9AA9-058624009E4E}|ServerKahioot\\ServerKahioot.csproj|solutionrelative:serverkahioot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7363683-562D-4709-AE4A-59DC302FFADF}|ClientKahioot\\ClientKahioot.csproj|c:\\users\\dafne\\onedrive\\escritorio\\programaci\u00F3\\sockets\\kahioot\\clientkahioot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E7363683-562D-4709-AE4A-59DC302FFADF}|ClientKahioot\\ClientKahioot.csproj|c:\\users\\dafne\\desktop\\kahioot\\clientkahioot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E7363683-562D-4709-AE4A-59DC302FFADF}|ClientKahioot\\ClientKahioot.csproj|solutionrelative:clientkahioot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -24,9 +24,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\dafne\\OneDrive\\Escritorio\\Programaci\u00F3\\Sockets\\Kahioot\\ServerKahioot\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\dafne\\Desktop\\Kahioot\\ServerKahioot\\Program.cs",
               "RelativeDocumentMoniker": "ServerKahioot\\Program.cs",
-              "ToolTip": "C:\\Users\\dafne\\OneDrive\\Escritorio\\Programaci\u00F3\\Sockets\\Kahioot\\ServerKahioot\\Program.cs",
+              "ToolTip": "C:\\Users\\dafne\\Desktop\\Kahioot\\ServerKahioot\\Program.cs",
               "RelativeToolTip": "ServerKahioot\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAG4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -37,14 +37,13 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\dafne\\OneDrive\\Escritorio\\Programaci\u00F3\\Sockets\\Kahioot\\ClientKahioot\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\dafne\\Desktop\\Kahioot\\ClientKahioot\\Program.cs",
               "RelativeDocumentMoniker": "ClientKahioot\\Program.cs",
-              "ToolTip": "C:\\Users\\dafne\\OneDrive\\Escritorio\\Programaci\u00F3\\Sockets\\Kahioot\\ClientKahioot\\Program.cs",
+              "ToolTip": "C:\\Users\\dafne\\Desktop\\Kahioot\\ClientKahioot\\Program.cs",
               "RelativeToolTip": "ClientKahioot\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T15:15:08.198Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-27T15:15:08.198Z"
             }
           ]
         }
