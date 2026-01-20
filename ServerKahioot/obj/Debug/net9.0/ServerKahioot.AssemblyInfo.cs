@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ServerKahioot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73f8ee904f1588745e7867c3c783b73ba71c309f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fec7ee1dee4fd8c90ca5887bff8ddfa27a7f67ef")]
 [assembly: System.Reflection.AssemblyProductAttribute("ServerKahioot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ServerKahioot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

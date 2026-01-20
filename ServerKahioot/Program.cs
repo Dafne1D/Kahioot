@@ -1,131 +1,101 @@
-﻿using System.Net;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Net;
 using System.Net.Sockets;
 
 class ServerProgram
 {
-    private const int QuantitatJugadors = 2;
+    private const int QuantitatJugadors = 1;
     private const int Port = 5000;
 
-    private static TcpListener? Listener;
-    private static readonly TcpClient?[] Clients = new TcpClient[QuantitatJugadors];
-    private static readonly StreamReader?[] Readers = new StreamReader[QuantitatJugadors];
-    private static readonly StreamWriter?[] Writers = new StreamWriter[QuantitatJugadors];
-    private static readonly string[] NomClients = new string[QuantitatJugadors];
+    private static TcpListener Listener;
+    private static TcpClient[] Clients = new TcpClient[QuantitatJugadors];
+    private static StreamReader[] Readers = new StreamReader[QuantitatJugadors];
+    private static StreamWriter[] Writers = new StreamWriter[QuantitatJugadors];
+    private static string[] NomClients = new string[QuantitatJugadors];
+    private static int[] Puntuacions = new int[QuantitatJugadors];
 
-    static async Task Main()
+    private static readonly (string pregunta, string correcta)[] Preguntes =
     {
-        try
-        {
-            Listener = new TcpListener(IPAddress.Any, Port);
-            Listener.Start();
-            Console.WriteLine($"Servidor escoltant al port {Port}...");
+        ("Quin tipus de pokèmon és en Charmeleon?\n A) Aigua  B) Terra  C) Foc  D) Fantasma", "C"),
+        ("Quina d'aquestes opcions no és un ERP?\n A) SAP  B) Netsuite  C) Odoo  D) GIMP", "D"),
+        ("En el joc de cartes Màgic, que NO és un encanteri?\n A) Criatures  B) Terres  C) Instantanis  D) Artefactes", "B"),
+        ("Qui és el director de la saga de pelis 'The Lord Of The Rings'?\n A) Tim Barton   B) Peter Jackson  C) Brandon Sanderson  D) Uriens Agustí", "B"),
+        ("Quin llenguatge de programació´utilitza Unity?\n A) Python B) Anglès C) Java D) C#", "D")
+    };
+    static async Task Main(string[] args)
+    {
+        Listener = new TcpListener(IPAddress.Any, Port);
+        Listener.Start();
 
-            await EsperarTotsElsJugadors();
-            await FerPreguntaATots();
-        }
-        catch (SocketException ex)
-        {
-            Console.WriteLine($"Fallada de xarxa: {ex.Message}");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error crític al servidor: {ex.Message}");
-        }
-        finally
-        {
-            await TancarTotesLesConnexions();
-            Listener?.Stop();
-        }
+        await AcceptarClients();
+        await FerPartida();
+
+        TancarConnexions();
+        Listener.Stop();
     }
-
-    static async Task EsperarTotsElsJugadors()
+    static async Task AcceptarClients()
     {
-        Task[] connexions = new Task[QuantitatJugadors];
-        for (int id = 0; id < QuantitatJugadors; id++)
+        for (int i = 0; i < QuantitatJugadors; i++)
         {
-            int idLocal = id;
-            connexions[id] = Task.Run(() =>
+            Console.WriteLine($"Esperant jugador {i}...");
+            Clients[i] = await Listener.AcceptTcpClientAsync();
+            NetworkStream ns = Clients[i].GetStream();
+            Readers[i] = new StreamReader(ns);
+            Writers[i] = new StreamWriter(ns) { AutoFlush = true };
+
+            Writers[i].WriteLine("Escriu el teu nom:");
+            NomClients[i] = await Readers[i].ReadLineAsync();
+            Puntuacions[i] = 0;
+        }
+
+        foreach (var w in Writers)
+            w.WriteLine("Tots els jugadors connectats. Iniciem amb les preguntes!");
+    }
+    static async Task FerPartida()
+    {
+        foreach (var (pregunta, correcta) in Preguntes)
+        {
+            await EnviarATots($"Pregunta:\n{pregunta}");
+
+            for (int i = 0; i < QuantitatJugadors; i++)
             {
-                GestionarConnexio(idLocal);
-                DonarBenvinguda(idLocal);
-            });
+                Writers[i].WriteLine("Resposta (A/B/C/D):");
+            }
+
+            for (int i = 0; i < QuantitatJugadors; i++)
+            {
+                string resposta = (await Readers[i].ReadLineAsync())?.Trim().ToUpper();
+                Console.WriteLine($"{NomClients[i]} ha respost {resposta}");
+
+                if (resposta == correcta)
+                {
+                    Puntuacions[i] += 20;
+                    Writers[i].WriteLine($"Correcte! +20 punts (Total: {Puntuacions[i]})");
+                }
+                else
+                    Writers[i].WriteLine($"Incorrecte. La resposta era {correcta}");
+            }
         }
-        await Task.WhenAll(connexions);
-        Console.WriteLine($"Tots els {QuantitatJugadors} jugadors connectats!");
-    }
-
-    static void GestionarConnexio(int idClient)
-    {
-        Console.WriteLine($"Esperant la connexió del client {idClient}...");
-        Clients[idClient] = Listener.AcceptTcpClient();
-        NetworkStream stream = Clients[idClient]!.GetStream();
-        Readers[idClient] = new StreamReader(stream);
-        Writers[idClient] = new StreamWriter(stream) { AutoFlush = true };
-        Console.WriteLine($"Client {idClient} connectat!");
-    }
-
-    static void DonarBenvinguda(int idClient)
-    {
-        Writers[idClient].WriteLine("Benvingut al KAHOOT!");
-        Writers[idClient].WriteLine("Quin és el teu nom?");
-        string? nom = Readers[idClient].ReadLine();
-        NomClients[idClient] = nom;
-        Console.WriteLine($"Client {idClient} ha dit que es diu {nom}");
-        Writers[idClient].WriteLine("Si us plau, espera a que es connectin la resta dels jugadors...");
-
-    }
-
-    static async Task FerPreguntaATots()
-    {
-        Task[] preguntes = new Task[QuantitatJugadors];
-        for (int id = 0; id < QuantitatJugadors; id++)
+        await EnviarATots("\nResultats:");
+        for (int i = 0; i < QuantitatJugadors; i++)
         {
-            int idLocal = id;
-            preguntes[id] = Task.Run(() => FerPregunta(idLocal));
+            await EnviarATots($"{NomClients[i]}: {Puntuacions[i]} punts");
         }
-        await Task.WhenAll(preguntes);
+
+        await EnviarATots("S'ha acabat la partida");
     }
-
-    static void FerPregunta(int idClient)
+    static async Task EnviarATots(string msg)
     {
-        Console.WriteLine($"Fent pregunta al client {idClient} ({NomClients[idClient]})");
-        Writers[idClient].WriteLine($"Atenció {NomClients[idClient]}, primera pregunta: A/B/C/D?");
-
-        string? opcio = Readers[idClient].ReadLine();
-        opcio = opcio?.Trim().ToUpperInvariant();
-
-        if (opcio == "A")
-        {
-            Writers[idClient].WriteLine("Correcte!");
-            Console.WriteLine($"Client {idClient} ({NomClients[idClient]}) ha respost correctament");
-        }
-        else
-        {
-            Writers[idClient].WriteLine("Incorrecte.");
-            Console.WriteLine($"Client {idClient} ({NomClients[idClient]}) ha respost: {opcio ?? "(null)"}");
-        }
-
-        Writers[idClient].WriteLine("Gràcies per participar, fins un altre.");
+        foreach (var w in Writers)
+            await w.WriteLineAsync(msg);
     }
-
-
-    static async Task TancarTotesLesConnexions()
+    static void TancarConnexions()
     {
-        Task[] tancaments = new Task[QuantitatJugadors];
-        for (int id = 0; id < QuantitatJugadors; id++)
+        for (int i = 0; i < QuantitatJugadors; i++)
         {
-            int idLocal = id;
-            tancaments[id] = Task.Run(() => TancarConnexio(idLocal));
+            Writers[i]?.Dispose();
+            Readers[i]?.Dispose();
+            Clients[i]?.Close();
         }
-        await Task.WhenAll(tancaments);
-    }
-
-    static void TancarConnexio(int idClient)
-    {
-        Console.WriteLine($"Tancant connexió del client {idClient}...");
-        Readers[idClient]?.Dispose();
-        Writers[idClient]?.Dispose();
-        Clients[idClient]?.Close();
-        Console.WriteLine($"Connexió del client {idClient} tancada");
     }
 }

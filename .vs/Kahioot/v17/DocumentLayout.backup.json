@@ -18,21 +18,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\dafne\\Desktop\\Kahioot\\ServerKahioot\\Program.cs",
-              "RelativeDocumentMoniker": "ServerKahioot\\Program.cs",
-              "ToolTip": "C:\\Users\\dafne\\Desktop\\Kahioot\\ServerKahioot\\Program.cs",
-              "RelativeToolTip": "ServerKahioot\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T15:15:40.658Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -41,9 +28,22 @@
               "RelativeDocumentMoniker": "ClientKahioot\\Program.cs",
               "ToolTip": "C:\\Users\\dafne\\Desktop\\Kahioot\\ClientKahioot\\Program.cs",
               "RelativeToolTip": "ClientKahioot\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAQwDUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T15:15:08.198Z",
+              "WhenOpened": "2026-01-15T15:07:20.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\dafne\\Desktop\\Kahioot\\ServerKahioot\\Program.cs",
+              "RelativeDocumentMoniker": "ServerKahioot\\Program.cs",
+              "ToolTip": "C:\\Users\\dafne\\Desktop\\Kahioot\\ServerKahioot\\Program.cs",
+              "RelativeToolTip": "ServerKahioot\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T15:17:00.957Z",
               "EditorCaption": ""
             }
           ]

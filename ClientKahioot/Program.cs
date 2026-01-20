@@ -1,44 +1,62 @@
-﻿using System.Net.Sockets;
+﻿using System;
+using System.IO;
+using System.Net.Sockets;
 
 class Client
 {
     private const int port = 5000;
-    private const string servidorIP = "127.0.0.1";
+    private static string servidorIP = "127.0.0.1";
+    private static bool running = true;
 
-    static void Main()
+
+    static void Main(string[] args)
     {
-        TcpClient client = null;
-        try
-        {
-            client = new TcpClient(servidorIP, port);
-            NetworkStream stream = client.GetStream();
-            StreamReader reader = new StreamReader(stream);
-            StreamWriter writer = new StreamWriter(stream) { AutoFlush = true };
 
-            string missatge = reader.ReadLine();
-            Console.WriteLine($"Servidor: {missatge}");
-            Console.Write("Escriu el teu nom: ");
-            string nom = Console.ReadLine();
-            writer.WriteLine(nom);
-            Console.WriteLine("Nom enviat al servidor.");
-        }
-        catch (SocketException ex)
+        if (args.Length != 0)
         {
-            Console.WriteLine("Fallada de xarxa.");
-            Console.WriteLine(ex.Message);
+            servidorIP = args[0];
         }
-        catch (IOException ex)
+
+        TcpClient client = new TcpClient(servidorIP, port);
+        NetworkStream stream = client.GetStream();
+        StreamReader reader = new StreamReader(stream);
+        StreamWriter writer = new StreamWriter(stream) { AutoFlush = true };
+
+        Console.WriteLine("Connectat al servidor!");
+
+        ConsoleKeyInfo cki;
+
+        Console.Clear();
+
+        Console.CancelKeyPress += new ConsoleCancelEventHandler(myHandler);
+
+        while (running)
         {
-            Console.WriteLine("Error en la comunicació amb el servidor.");
-            Console.WriteLine(ex.Message);
+            string msg = reader.ReadLine();
+            if (msg == null)
+            {
+                running = false;
+            }
+            else
+            {
+                Console.WriteLine($"Servidor: {msg}");
+
+                if (msg.Contains("Escriu el teu nom") ||
+                    msg.Contains("Resposta"))
+                {
+                    Console.Write("> ");
+                    string resposta = Console.ReadLine();
+                    writer.WriteLine(resposta);
+                }
+            }
         }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error {ex.GetType().Name}: {ex.Message}");
-        }
-        finally
-        {
-            client?.Close();
-        }
+        Console.WriteLine("Connexió tencada pel servidor");
+    }
+
+    protected static void myHandler(object sender, ConsoleCancelEventArgs args)
+    {
+        Console.WriteLine("El client ha pres Crtl+c, tencant connexió");
+        args.Cancel = true;
+        running = false;
     }
 }
